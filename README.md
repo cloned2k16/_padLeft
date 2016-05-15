@@ -6,6 +6,7 @@ check it in your browser [HERE](http://cloned2k16.github.io/_padLeft/)
 
 [![Package Info](http://img.shields.io/badge/npm-pad_left-blue.svg)](https://npmjs.org/package/pad_left)
 [![npm](https://badge.fury.io/js/pad_left.svg)](http://badge.fury.io/js/pad_left)
+[![npm](https://badge.fury.io/js/left_pad.svg)](http://badge.fury.io/js/left_pad)
 
 [![license](https://img.shields.io/npm/l/pad_left.svg)](https://npmjs.org/package/pad_left) 
 [![installs](https://img.shields.io/npm/dt/pad_left.svg)](https://npmjs.org/package/pad_left) 
