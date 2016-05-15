@@ -14,3 +14,5 @@ check it in your browser [HERE](http://cloned2k16.github.io/_padLeft/)
 [![devDependency Status](https://david-dm.org/cloned2k16/_padLeft/dev-status.svg)](https://david-dm.org/cloned2k16/_padLeft/dev-status)
 
 [![Build Status](https://travis-ci.org/cloned2k16/_padLeft.svg?branch=master)](https://travis-ci.org/cloned2k16/_padLeft)
+
+[ ![Codeship Status for cloned2k16/_padLeft](https://codeship.com/projects/ead50d10-fd08-0133-a16f-12bea37b94ef/status?branch=master)](https://codeship.com/projects/152113)
