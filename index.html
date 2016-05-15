@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+ <HTML>
+  <BODY>
+   <DIV id=oDiv style="width: 100%; height: 640px; position: relative; display: block;">
+  </DIV>   
+   <SCRIPT src=index.js></SCRIPT>
+   <SCRIPT>
+    Object.prototype.toString = function () {
+     var res="{ ";
+     for (var l in this){
+      if (! ((this[l] instanceof Function)
+        ||   (this[l] instanceof Array))      )  res +='<br>'+ l+" : "+this[l];
+     }
+     return res+" } ";
+    }
+    
+    var leftPad = _padLeft.func
+    ,   _out    = document.getElementById('oDiv')
+    ,   log     = function ()                   {
+      var a=arguments;
+      for (var l in arguments){
+       _out.innerHTML+='<br>'+a[l];
+      } 
+    }
+    ,   out     = function (s)                  { _out.innerHTML+= s; }
+    ,   logNl   = function ()                   { log('<br>'); }
+    ,   test    = function (tst,res)            {
+     var evl=eval(tst);   
+     var fmt='<tr><td>'+tst+'</td><td>['+res+']</td><td>'+evl+'</td><td>'+(evl==res?'pass':'FAIL')+'</td></tr>';
+     return fmt;
+    }
+    ;
+    
+    log (_padLeft);
+    logNl();
+    var tabl='<pre><table>';
+    tabl+='<tr><th width=200>test</th><th width=200>expected</th><th width=200>result</th><th>check</th></tr>';
+    
+    tabl+=test('leftPad (123, 8,  0)','00000123');
+    tabl+=test('leftPad (  1,-1,  0)',       '1');
+    tabl+=test('leftPad (  1, 0,  0)',       '1');
+    tabl+=test('leftPad (  1, 1,  0)',       '1');
+    tabl+=test('leftPad (  1, 2,  0)',      '01');
+    tabl+=test('leftPad (  1, 2,  2)',      '21');
+    
+    // put more test here !!
+    
+    tabl+='</table></pre>';
+    log(tabl);
+  </SCRIPT>
+ </BODY> 
+</HTML> 
