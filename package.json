@@ -1,6 +1,6 @@
 {
-        "name"              :   "_padLeft"
-    ,   "version"           :   "0.0.1"
+        "name"              :   "pad_left"
+    ,   "version"           :   "0.0.2"
     ,   "description"       :   "String left pad"
     ,   "license"           :   "CC-BY-NC-4.0"
     ,   "readmeFilename"    :   "README.md"
