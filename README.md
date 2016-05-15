@@ -10,7 +10,7 @@ check it in your browser [HERE](http://cloned2k16.github.io/_padLeft/)
 [![license](https://img.shields.io/npm/l/pad_left.svg)](https://npmjs.org/package/pad_left) 
 [![installs](https://img.shields.io/npm/dt/pad_left.svg)](https://npmjs.org/package/pad_left) 
 
-[![Dependencies]        (https://david-dm.org/cloned2k16/_padLest.svg)](https://david-dm.org/cloned2k16/_padLeft)
+[![Dependency Status](https://david-dm.org/cloned2k16/_padLeft.svg)](https://david-dm.org/cloned2k16/_padLeft)
 [![devDependency Status](https://david-dm.org/cloned2k16/_padLeft/dev-status.svg)](https://david-dm.org/cloned2k16/_padLeft/dev-status)
 
 [![Build Status](https://travis-ci.org/cloned2k16/_padLeft.svg?branch=master)](https://travis-ci.org/cloned2k16/_padLeft)
