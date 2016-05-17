@@ -19,3 +19,6 @@ check it in your browser [HERE](http://cloned2k16.github.io/_padLeft/)
 [![Build Status](https://travis-ci.org/cloned2k16/_padLeft.svg?branch=master)](https://travis-ci.org/cloned2k16/_padLeft)
 
 [ ![Codeship Status for cloned2k16/_padLeft](https://codeship.com/projects/ead50d10-fd08-0133-a16f-12bea37b94ef/status?branch=master)](https://codeship.com/projects/152113)
+
+[![left_pad](https://nodei.co/npm/left_pad.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/left_pad/)
+[![pad_left](https://nodei.co/npm/pad_left.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/pad_left/)
