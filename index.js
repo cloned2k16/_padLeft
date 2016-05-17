@@ -3,7 +3,7 @@
 var _padLeft        =   { 
                         name:       'Padding from Left side (aka _padLeft)' 
                     ,   desc:       'A module handling Left alignment for string'
-                    ,   version:    '0.0.3'
+                    ,   version:    '0.0.5'
                     };
 
 _padLeft.spaces     = [ // avoid global pollution & power of 2 size
@@ -66,24 +66,26 @@ _padLeft.func       = function  (str, len, ch)  {
             ; 
             
   if (len   <= 0) return str;
+  if (String.prototype.repeat) pad = ch.repeat(len);
+  else {
+            // special cases
+          if (ch === ' ') cache = _padLeft.spaces;
+    else  if (ch === '0') cache = _padLeft.zeros;
   
-  // special cases
-        if (ch === ' ') cache = _padLeft.spaces;
-  else  if (ch === '0') cache = _padLeft.zeros;
-  
-  if (cache){  
-   var cLen=cache.length-1;
-   if (len <= cLen) return cache[len] + str;
-   len-=cLen;
-   pad =cache[cLen]
-  }
-  
-  do {
-   pad += (len & 1) ?  ch : '';
-   len >>>=1;
-   ch+=ch;
-  }  
-  while (len > 0);
+    if (cache){  
+        var cLen=cache.length-1;
+        if (len <= cLen) return cache[len] + str;
+        len-=cLen;
+        pad =cache[cLen]
+    }
+
+    do {
+        pad += (len & 1) ?  ch : '';
+        len >>>=1;
+        ch+=ch;
+    }  
+    while (len > 0);
+  } 
 
   return pad + str;
 }
