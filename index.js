@@ -1,9 +1,10 @@
 'use strict';
 
+
 var _padLeft        =   { 
                         name:       'Padding from Left side (aka _padLeft)' 
                     ,   desc:       'A module handling Left alignment for string'
-                    ,   version:    '0.0.5'
+                    ,   version:    '0.0.6'
                     };
 
 _padLeft.spaces     = [ // avoid global pollution & power of 2 size
@@ -65,33 +66,27 @@ _padLeft.func       = function  (str, len, ch)  {
                     :           len 
             ; 
             
-  if (len   <= 0) return str;
-  if (String.prototype.repeat) pad = ch.repeat(len);
-  else {
-            // special cases
-          if (ch === ' ') cache = _padLeft.spaces;
-    else  if (ch === '0') cache = _padLeft.zeros;
+        if (len   <= 0) return str;
+  else  if (ch === ' ') cache = _padLeft.spaces;
+  else  if (ch === '0') cache = _padLeft.zeros;
   
-    if (cache){  
-        var cLen=cache.length-1;
-        if (len <= cLen) return cache[len] + str;
-        len-=cLen;
-        pad =cache[cLen]
-    }
-
-    do {
-        pad += (len & 1) ?  ch : '';
-        len >>>=1;
-        ch+=ch;
-    }  
-    while (len > 0);
-  } 
+  if (cache){  
+    var cLen=cache.length-1;
+    if (len <= cLen) return cache[len] + str;
+    len-=cLen;
+    pad =cache[cLen]
+  }
+    
+  pad += ch.repeat(len);
 
   return pad + str;
 }
 
-
-var module          = module || {};          // browser friendly ... :D
-module.exports      = _padLeft.func;
-
+if (undefined == module) { // browser friendly ... :D
+   _String_Prototypes.apply(window);
+}
+else    { // Node
+    require('string_prototypes').apply(global);
+    module.exports      = _padLeft.func;
+}
 

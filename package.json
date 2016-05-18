@@ -1,6 +1,6 @@
 {
         "name"              :   "left_pad"
-    ,   "version"           :   "0.0.5"
+    ,   "version"           :   "0.0.6"
     ,   "description"       :   "String left pad"
     ,   "license"           :   "CC-BY-NC-4.0"
     ,   "readmeFilename"    :   "README.md"
@@ -14,20 +14,20 @@
                             ,       "repeat"
                             ]
     ,   "bugs"              :   {
-                                    "url"   :   "https://github.com/cloned2k16/_padLeft/issues"
+                                    "url"               :   "https://github.com/cloned2k16/_padLeft/issues"
                             }
-    ,   "dependencies"      :   {}
+    ,   "dependencies"      :   {   "string_prototypes" :   ""}
     ,   "devDependencies"   :   {
-                                    "tape"  :   "~4.5.1"
+                                    "tape"              :   "~4.5.1"
                                 }
     ,   "repository"        :   {
-                                    "type"  :   "git"
-                                ,   "url"   :   "git@github.com:cloned2k16/_padLeft.git"
+                                    "type"              :   "git"
+                                ,   "url"               :   "git@github.com:cloned2k16/_padLeft.git"
                                 
                             }
     ,   "main"              :   "index.js"
     ,   "scripts"           :   {
-                                    "test"  :   "node test"
+                                    "test"              :   "node test"
                             }
     ,   "author"            :   "Paolo Lioy"
 }
