@@ -6,12 +6,14 @@ check it in your browser [HERE](http://cloned2k16.github.io/_padLeft/)
 
 [![Package Info](http://img.shields.io/badge/npm-pad_left-blue.svg)](https://npmjs.org/package/pad_left)
 [![npm](https://badge.fury.io/js/pad_left.svg)](http://badge.fury.io/js/pad_left)
+[![license](https://img.shields.io/npm/l/pad_left.svg)](https://npmjs.org/package/pad_left) 
+[![installs](https://img.shields.io/npm/dt/pad_left.svg)](https://npmjs.org/package/pad_left) 
 
 [![Package Info](http://img.shields.io/badge/npm-left_pad-blue.svg)](https://npmjs.org/package/left_pad)
 [![npm](https://badge.fury.io/js/left_pad.svg)](http://badge.fury.io/js/left_pad)
+[![license](https://img.shields.io/npm/l/left_pad.svg)](https://npmjs.org/package/left_pad) 
+[![installs](https://img.shields.io/npm/dt/left_pad.svg)](https://npmjs.org/package/left_pad) 
 
-[![license](https://img.shields.io/npm/l/pad_left.svg)](https://npmjs.org/package/pad_left) 
-[![installs](https://img.shields.io/npm/dt/pad_left.svg)](https://npmjs.org/package/pad_left) 
 
 [![Dependency Status](https://david-dm.org/cloned2k16/_padLeft.svg)](https://david-dm.org/cloned2k16/_padLeft)
 [![devDependency Status](https://david-dm.org/cloned2k16/_padLeft/dev-status.svg)](https://david-dm.org/cloned2k16/_padLeft/dev-status)
