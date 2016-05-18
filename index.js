@@ -1,11 +1,12 @@
 'use strict';
 
 
-var _padLeft        =   { 
-                        name:       'Padding from Left side (aka _padLeft)' 
-                    ,   desc:       'A module handling Left alignment for string'
-                    ,   version:    '0.0.7'
+var _padLeft        =   {   name:       'Padding from Left side (aka _padLeft)' 
+                    ,       desc:       'A module handling Left alignment for string'
+                    ,       version:    '0.0.8'
                     };
+
+_padLeft.tabSz      = 4; // most common tab size
 
 _padLeft.spaces     = [ // avoid global pollution & power of 2 size
     ''
@@ -47,6 +48,26 @@ _padLeft.zeros      = [ // that's another most used case, worth to cache it
   , '0000000000000000'  //16
 ];
 
+_padLeft.tabs       = [ // that's the most tricky case (we assume tabSz == 4)
+    ''
+  , '\t'                                    //1  (4)
+  , '\t\t'                                  //2  (8)
+  , '\t\t\t'                                //  (12)
+  , '\t\t\t\t'                              //4
+  , '\t\t\t\t\t'         
+  , '\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t\t'                      //8
+  , '\t\t\t\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t\t\t\t\t\t'              //12 
+  , '\t\t\t\t\t\t\t\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t\t\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t'
+  , '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t'      //16
+];
+
 _padLeft.func       = function  (str, len, ch)  {
   str       = '' + str; 
   ch        = arguments.length<=2 ? ' ' : ''+ch;
@@ -60,13 +81,14 @@ _padLeft.func       = function  (str, len, ch)  {
   ,     ovrSz   
   ;
 
+        if (ch == '\t') { cache = _padLeft.tabs   ; chSz=4; };         
+
   ovrSz     =  (len % chSz);      
   len       =  (len / chSz) >> 0; // force int :D
   
  
-        if (ch == '\t') cache = _padLeft.tabs   ;          
-  else  if (ch == ' ' ) cache = _padLeft.spaces ;
-  else  if (ch == '0' ) cache = _padLeft.zeros  ;
+        if (ch == ' ' )   cache = _padLeft.spaces ;
+  else  if (ch == '0' )   cache = _padLeft.zeros  ;
       
   if (cache) {  
     var cLen=cache.length-1;
