@@ -4,7 +4,7 @@
 var _padLeft        =   { 
                         name:       'Padding from Left side (aka _padLeft)' 
                     ,   desc:       'A module handling Left alignment for string'
-                    ,   version:    '0.0.6'
+                    ,   version:    '0.0.7'
                     };
 
 _padLeft.spaces     = [ // avoid global pollution & power of 2 size
@@ -48,37 +48,37 @@ _padLeft.zeros      = [ // that's another most used case, worth to cache it
 ];
 
 _padLeft.func       = function  (str, len, ch)  {
-  var   pad     = ''
-  ,     cache   
-  ,     chSz
-  ,     strSz
-  ;
-  
   str       = '' + str; 
   ch        = arguments.length<=2 ? ' ' : ''+ch;
-  chSz      = ch .length;
-  strSz     = str.length;
-
-  // we now treat chSz > 1 as new feature which let you pad a string with another string
-  // while in this case the len argument is interpreted as ''repeat'' padding string n times
-  len       = chSz <=0 ?        0 
-                : chSz ==1 ?    len - strSz
-                    :           len 
-            ; 
-            
-        if (len   <= 0) return str;
-  else  if (ch === ' ') cache = _padLeft.spaces;
-  else  if (ch === '0') cache = _padLeft.zeros;
+  len       = len - str.length;
   
-  if (cache){  
+  if (len   <= 0) return str; //nothing to do ..
+
+  var   pad     = ''
+  ,     cache
+  ,     chSz    = ch.length
+  ,     ovrSz   
+  ;
+
+  ovrSz     =  (len % chSz);      
+  len       =  (len / chSz) >> 0; // force int :D
+  
+ 
+        if (ch == '\t') cache = _padLeft.tabs   ;          
+  else  if (ch == ' ' ) cache = _padLeft.spaces ;
+  else  if (ch == '0' ) cache = _padLeft.zeros  ;
+      
+  if (cache) {  
     var cLen=cache.length-1;
     if (len <= cLen) return cache[len] + str;
     len-=cLen;
     pad =cache[cLen]
   }
     
-  pad += ch.repeat(len);
+  pad += 0==len   ? '' : ch.repeat(len);
 
+  pad += 0==ovrSz ? '' : ch.substring(0, ovrSz);
+      
   return pad + str;
 }
 
