@@ -1,7 +1,9 @@
-var leftPad     = require("./");
-var test        = require("tape");
+var leftPad     = require("./")
+,   test        = require("tape")
+;
 
 test('_padLeft' , function (assert) {  assert.plan(32);
+  
   
   assert.strictEqual(leftPad('foo'      ,  5)           , '  foo'                   );
   assert.strictEqual(leftPad('foobar'   ,  6)           , 'foobar'                  ); // zero
@@ -39,13 +41,17 @@ test('_padLeft' , function (assert) {  assert.plan(32);
   assert.strictEqual(leftPad('feature'  , 22, 'new '    ), 'new new new newfeature' ); // padding string
   assert.strictEqual(leftPad('feature'  , 23, 'new '    ), 'new new new new feature'); // padding string
   // 4
-
+  
+  leftPad.setTabSize(4);
   assert.strictEqual(leftPad('tabs'     ,  4, '\t'      ), 'tabs'                   ); // padding with tabs
   assert.strictEqual(leftPad('tabs'     ,  8, '\t'      ), '\ttabs'                 ); // padding with tabs
   assert.strictEqual(leftPad('tabs'     , 12, '\t'      ), '\t\ttabs'               ); // padding with tabs
-  assert.strictEqual(leftPad('tabs'     , 64, '\t'      ), '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttabs'      ); // padding with tabs while still cache hit :D
-  assert.strictEqual(leftPad('tabs'     , 65, '\t'      ), '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttabs'      ); // padding with tabs while still cache hit :D
-  assert.strictEqual(leftPad('tabs'     , 66, '\t'      ), '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttabs'      ); // padding with tabs while still cache hit :D
+  leftPad.setTabSize(8);
+  assert.strictEqual(leftPad('tabs'     , 64, '\t'      ), '\t\t\t\t\t\t\ttabs'     ); // padding with tabs while still cache hit :D
+  assert.strictEqual(leftPad('tabs'     , 65, '\t'      ), '\t\t\t\t\t\t\ttabs'     ); // padding with tabs while still cache hit :D
+  assert.strictEqual(leftPad('tabs'     , 66, '\t'      ), '\t\t\t\t\t\t\ttabs'     ); // padding with tabs while still cache hit :D
   // 6  
   
+  console.log('\n using version: ',leftPad.obj.version);
+
 });

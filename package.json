@@ -1,6 +1,6 @@
 {
         "name"              :   "left_pad"
-    ,   "version"           :   "0.0.8"
+    ,   "version"           :   "0.0.9"
     ,   "description"       :   "String left pad"
     ,   "license"           :   "CC-BY-NC-4.0"
     ,   "readmeFilename"    :   "README.md"

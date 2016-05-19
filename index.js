@@ -3,12 +3,10 @@
 
 var _padLeft        =   {   name:       'Padding from Left side (aka _padLeft)' 
                     ,       desc:       'A module handling Left alignment for string'
-                    ,       version:    '0.0.8'
+                    ,       version:    '0.0.9'
                     };
 
-_padLeft.tabSz      = 4; // most common tab size
-
-_padLeft.spaces     = [ // avoid global pollution & power of 2 size
+_padLeft.spaces     =   [ 
     ''
   , ' '                 //1
   , '  '                //2
@@ -28,7 +26,7 @@ _padLeft.spaces     = [ // avoid global pollution & power of 2 size
   , '                '  //16
 ];
 
-_padLeft.zeros      = [ // that's another most used case, worth to cache it
+_padLeft.zeros      =   [ 
     ''
   , '0'                 //1
   , '00'                //2
@@ -48,7 +46,9 @@ _padLeft.zeros      = [ // that's another most used case, worth to cache it
   , '0000000000000000'  //16
 ];
 
-_padLeft.tabs       = [ // that's the most tricky case (we assume tabSz == 4)
+_padLeft.tabSs      =   4;  // most common tab size
+
+_padLeft.tabs       =   [   // that's the most tricky case 
     ''
   , '\t'                                    //1  (4)
   , '\t\t'                                  //2  (8)
@@ -68,7 +68,7 @@ _padLeft.tabs       = [ // that's the most tricky case (we assume tabSz == 4)
   , '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t'      //16
 ];
 
-_padLeft.func       = function  (str, len, ch)  {
+_padLeft.func       =   function  (str, len, ch)  {
   str       = '' + str; 
   ch        = arguments.length<=2 ? ' ' : ''+ch;
   len       = len - str.length;
@@ -81,7 +81,7 @@ _padLeft.func       = function  (str, len, ch)  {
   ,     ovrSz   
   ;
 
-        if (ch == '\t') { cache = _padLeft.tabs   ; chSz=4; };         
+        if (ch == '\t') { cache = _padLeft.tabs   ; chSz=_padLeft.tabSz; };         
 
   ovrSz     =  (len % chSz);      
   len       =  (len / chSz) >> 0; // force int :D
@@ -103,6 +103,13 @@ _padLeft.func       = function  (str, len, ch)  {
       
   return pad + str;
 }
+
+_padLeft.func.
+         obj        = _padLeft;
+
+_padLeft.func.
+         setTabSize = function (sz) { _padLeft.tabSz = sz; }
+
 
 if (undefined == module) { // browser friendly ... :D
    _String_Prototypes.apply(window);
