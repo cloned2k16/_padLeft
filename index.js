@@ -3,7 +3,7 @@
 
 var _padLeft        =   {   name:       'Padding from Left side (aka _padLeft)' 
                     ,       desc:       'A module handling Left alignment for string'
-                    ,       version:    '0.0.9'
+                    ,       version:    '0.0.10'
                     };
 
 _padLeft.spaces     =   [ 
@@ -75,7 +75,7 @@ _padLeft.func       =   function  (str, len, ch)  {
   
   if (len   <= 0) return str; //nothing to do ..
 
-  var   pad     = ''
+  var   pad     = '' 
   ,     cache
   ,     chSz    = ch.length
   ,     ovrSz   
@@ -111,8 +111,10 @@ _padLeft.func.
          setTabSize = function (sz) { _padLeft.tabSz = sz; }
 
 
-if (undefined == module) { // browser friendly ... :D
+if ( typeof navigator  != 'undefined') { // browser friendly ... :D
+    console.log('navigator: ',navigator);
    _String_Prototypes.apply(window);
+   
 }
 else    { // Node
     require('string_prototypes').apply(global);
