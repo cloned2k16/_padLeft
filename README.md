@@ -4,6 +4,12 @@ then I decided that it's so much different than that  and maybe deserves its own
 
 check it in your browser [HERE](http://cloned2k16.github.io/_padLeft/)
 
+You can easily install  by using Bower, a package manager for front-end components.
+
+[![bower](http://benschwarz.github.io/bower-badges/badge@2x.png)](http://bower.herokuapp.com/packages/left_pad)
+`bower install pad_left`
+`bower install left_pad`
+
 [![Package Info](http://img.shields.io/badge/npm-pad_left-blue.svg)](https://npmjs.org/package/pad_left)
 [![npm](https://badge.fury.io/js/pad_left.svg)](http://badge.fury.io/js/pad_left)
 [![license](https://img.shields.io/npm/l/pad_left.svg)](https://npmjs.org/package/pad_left) 
