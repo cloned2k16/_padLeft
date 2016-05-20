@@ -30,4 +30,21 @@
                                     "test"              :   "node test"
                             }
     ,   "author"            :   "Paolo Lioy"
+    ,   "moduleType"        :   [
+        
+                                "globals"
+                            ,   "node"
+                            ]
+    ,   "ignore"            :   [
+                                "**/.*"
+                            ,   "node_modules"
+                            ,   "bower_components"
+                            ,   "test"
+                            ,   "testE2E"
+                            ,   ".gitignore"
+                            ,   ".travis.yml"
+                            ,   "package.json"
+                            ,   "index.html"
+                            ,   "test.js"  
+                            ]
 }
