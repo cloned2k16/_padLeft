@@ -3,7 +3,7 @@
 
 var _padLeft        =   {   name:       'Padding from Left side (aka _padLeft)' 
                     ,       desc:       'A module handling Left alignment for string'
-                    ,       version:    '0.0.10'
+                    ,       version:    '0.0.11'
                     };
 
 _padLeft.spaces     =   [ 
