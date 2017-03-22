@@ -1,5 +1,5 @@
 {
-        "name"              :   "_padLeft"
+        "name"              :   "pad_left"
     ,   "version"           :   "0.0.11"
     ,   "description"       :   "String left pad"
     ,   "license"           :   "CC-BY-NC-4.0"
